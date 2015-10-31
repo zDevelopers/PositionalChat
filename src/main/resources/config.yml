@@ -1,0 +1,7 @@
+
+distances:
+    # Chat before this distance will always be non-obfuscated (in blocks)
+    clearBefore: 30
+
+    # Chat after this distance will always be fully obfuscated (in blocks)
+    obfuscatedAfter: 150
