@@ -20,8 +20,8 @@ public class PositionalChat extends JavaPlugin
 
         saveDefaultConfig();
 
-        CLEAR_BEFORE     = Math.pow(getConfig().getDouble("distances.clearBefore", 30), 2);
-        OBFUSCATED_AFTER = Math.pow(getConfig().getDouble("distances.obfuscatedAfter", 150), 2);
+        CLEAR_BEFORE     = getConfig().getDouble("distances.clearBefore", 30);
+        OBFUSCATED_AFTER = getConfig().getDouble("distances.obfuscatedAfter", 150);
 
         getServer().getPluginManager().registerEvents(new ChatListener(), this);
 
@@ -29,12 +29,12 @@ public class PositionalChat extends JavaPlugin
     }
 
 
-    public double getClearBeforeSquared()
+    public double getClearBefore()
     {
         return CLEAR_BEFORE;
     }
 
-    public double getObfuscatedAfterSquared()
+    public double getObfuscatedAfter()
     {
         return OBFUSCATED_AFTER;
     }

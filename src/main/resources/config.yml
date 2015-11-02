@@ -1,7 +1,21 @@
-
 distances:
     # Chat before this distance will always be non-obfuscated (in blocks)
     clearBefore: 30
 
     # Chat after this distance will always be fully obfuscated (in blocks)
     obfuscatedAfter: 150
+
+# Remove colors from all partially or completly obfuscated messages?
+# The color is only removed from obfuscated parts.
+clearObfuscatedMessagesColors:
+    partial: false
+    fully: false
+
+replacements:
+    # Hide the obfuscated part using Minecraft's MAGIC formatter.
+    magic: true
+
+    # Hide the obfuscated part by replacing the characters with a random value.
+    # Use this to prevent players to consult their game log to see through the obfuscation.
+    # You'll lose the characters' width.
+    replaceObfuscatedText: false

@@ -31,16 +31,50 @@
  */
 package fr.zcraft.PositionalChat;
 
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+
+import java.util.HashSet;
 
 
 public class ChatListener implements Listener
 {
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onPlayerChat(AsyncPlayerChatEvent ev)
     {
-        
+        final String formattedMessage = String.format(ev.getFormat(), ev.getPlayer().getDisplayName(), ev.getMessage());
+
+        final Location senderLocation = ev.getPlayer().getLocation();
+
+        final double minDistance = PositionalChat.get().getClearBefore();
+        final double maxDistance = PositionalChat.get().getObfuscatedAfter();
+
+        // The message is sent for each player
+        for(Player receiver : new HashSet<>(ev.getRecipients()))
+        {
+            if(receiver.equals(ev.getPlayer())) continue;
+
+            double distanceSquared = senderLocation.getWorld().equals(receiver.getWorld()) ? senderLocation.distance(receiver.getLocation()) : maxDistance;
+
+            // If the receiver is close enough to receive a clear message, the message isn't altered.
+            // Here, the message will be altered.
+            // This receiver is removed from the list, and a message is sent for him.
+            if (distanceSquared >= minDistance)
+            {
+                ev.getRecipients().remove(receiver);
+
+                float obfuscationPercentage = (float) Math.min((distanceSquared - minDistance) / (maxDistance - minDistance), 1);
+                receiver.sendMessage(
+                        PositionalChat.get().getTextObfuscator().obfuscate(
+                                formattedMessage, obfuscationPercentage,
+                                true, true, false  // TODO load from config
+                        )
+                );
+            }
+        }
     }
 }
