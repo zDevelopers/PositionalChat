@@ -7,10 +7,8 @@ public class PositionalChat extends JavaPlugin
 {
     private static PositionalChat instance;
 
+    private PCConfig config;
     private TextObfuscator textObfuscator;
-
-    private double CLEAR_BEFORE;
-    private double OBFUSCATED_AFTER;
 
 
     @Override
@@ -20,25 +18,17 @@ public class PositionalChat extends JavaPlugin
 
         saveDefaultConfig();
 
-        CLEAR_BEFORE     = getConfig().getDouble("distances.clearBefore", 30);
-        OBFUSCATED_AFTER = getConfig().getDouble("distances.obfuscatedAfter", 150);
+        config = new PCConfig();
+        textObfuscator = new TextObfuscator();
 
         getServer().getPluginManager().registerEvents(new ChatListener(), this);
-
-        textObfuscator = new TextObfuscator();
     }
 
 
-    public double getClearBefore()
+    public PCConfig getPCConfig()
     {
-        return CLEAR_BEFORE;
+        return config;
     }
-
-    public double getObfuscatedAfter()
-    {
-        return OBFUSCATED_AFTER;
-    }
-
 
     public TextObfuscator getTextObfuscator()
     {

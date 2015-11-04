@@ -7,9 +7,7 @@ distances:
 
 # Remove colors from all partially or completly obfuscated messages?
 # The color is only removed from obfuscated parts.
-clearObfuscatedMessagesColors:
-    partial: false
-    fully: false
+clearObfuscatedMessagesColors: false
 
 replacements:
     # Hide the obfuscated part using Minecraft's MAGIC formatter.

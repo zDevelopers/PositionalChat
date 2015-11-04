@@ -50,8 +50,8 @@ public class ChatListener implements Listener
 
         final Location senderLocation = ev.getPlayer().getLocation();
 
-        final double minDistance = PositionalChat.get().getClearBefore();
-        final double maxDistance = PositionalChat.get().getObfuscatedAfter();
+        final double minDistance = PositionalChat.get().getPCConfig().getClearBefore();
+        final double maxDistance = PositionalChat.get().getPCConfig().getObfuscatedAfter();
 
         // The message is sent for each player
         for(Player receiver : new HashSet<>(ev.getRecipients()))
@@ -71,7 +71,9 @@ public class ChatListener implements Listener
                 receiver.sendMessage(
                         PositionalChat.get().getTextObfuscator().obfuscate(
                                 formattedMessage, obfuscationPercentage,
-                                true, true, false  // TODO load from config
+                                PositionalChat.get().getPCConfig().clearObfuscatedMessagesColors(),
+                                PositionalChat.get().getPCConfig().useMagicToObfuscate(),
+                                PositionalChat.get().getPCConfig().useRandomCharsToObfuscate()
                         )
                 );
             }
