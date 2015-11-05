@@ -18,6 +18,15 @@ permissions:
         default: op
         children:
             positionalchat.yell: true
+            positionalchat.clearview: false
+            ositionalchat.clearvoice: false
 
     positionalchat.yell:
+        description: Allows you to use /yell to the whole server.
         default: op
+    positionalchat.clearview:
+        description: Players with this permission always receive clear messages, regardless of the distance.
+        default: false
+    positionalchat.clearvoice:
+        description: Players with this permission always send clear messages, regardless of the distance.
+        default: false

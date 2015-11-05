@@ -51,6 +51,10 @@ public class ChatListener implements Listener
         if(ev instanceof AsyncPlayerYellEvent)
             return;
 
+        // Players with this permission always send clear messages
+        if(ev.getPlayer().hasPermission("positionalchat.clearvoice"))
+            return;
+
 
         final String formattedMessage = String.format(ev.getFormat(), ev.getPlayer().getDisplayName(), ev.getMessage());
 
@@ -62,7 +66,9 @@ public class ChatListener implements Listener
         // The message is sent for each player
         for(Player receiver : new HashSet<>(ev.getRecipients()))
         {
-            if(receiver.equals(ev.getPlayer())) continue;
+            if(receiver.equals(ev.getPlayer()) || receiver.hasPermission("positionalchat.clearview"))
+                continue;
+
 
             double distanceSquared = senderLocation.getWorld().equals(receiver.getWorld()) ? senderLocation.distance(receiver.getLocation()) : maxDistance;
 
