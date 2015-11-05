@@ -31,6 +31,9 @@
  */
 package fr.zcraft.PositionalChat;
 
+import org.bukkit.ChatColor;
+
+
 public class PCConfig
 {
     private final double clearBefore;
@@ -41,6 +44,9 @@ public class PCConfig
     private final boolean useMagicToObfuscate;
     private final boolean useRandomCharsToObfuscate;
 
+    private final String yellPrefixFullText;
+    private final String yellPrefixMessage;
+
     public PCConfig()
     {
         clearBefore = PositionalChat.get().getConfig().getDouble("distances.clearBefore", 30);
@@ -50,6 +56,9 @@ public class PCConfig
 
         useMagicToObfuscate = PositionalChat.get().getConfig().getBoolean("replacements.magic", true);
         useRandomCharsToObfuscate = PositionalChat.get().getConfig().getBoolean("replacements.replaceObfuscatedText", false);
+
+        yellPrefixFullText = ChatColor.translateAlternateColorCodes('&', PositionalChat.get().getConfig().getString("yell.prefix.full-text", ""));
+        yellPrefixMessage  = ChatColor.translateAlternateColorCodes('&', PositionalChat.get().getConfig().getString("yell.prefix.message", ""));
     }
 
     public double getClearBefore()
@@ -75,5 +84,15 @@ public class PCConfig
     public boolean useRandomCharsToObfuscate()
     {
         return useRandomCharsToObfuscate;
+    }
+
+    public String getYellPrefixFullText()
+    {
+        return yellPrefixFullText;
+    }
+
+    public String getYellPrefixMessage()
+    {
+        return yellPrefixMessage;
     }
 }

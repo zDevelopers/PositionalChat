@@ -31,6 +31,7 @@
  */
 package fr.zcraft.PositionalChat;
 
+import fr.zcraft.PositionalChat.events.AsyncPlayerYellEvent;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -46,6 +47,11 @@ public class ChatListener implements Listener
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onPlayerChat(AsyncPlayerChatEvent ev)
     {
+        // Yell messages are not obfuscated.
+        if(ev instanceof AsyncPlayerYellEvent)
+            return;
+
+
         final String formattedMessage = String.format(ev.getFormat(), ev.getPlayer().getDisplayName(), ev.getMessage());
 
         final Location senderLocation = ev.getPlayer().getLocation();
@@ -67,6 +73,7 @@ public class ChatListener implements Listener
             {
                 ev.getRecipients().remove(receiver);
 
+                // TODO real chat message (instead of system one).
                 float obfuscationPercentage = (float) Math.min((distanceSquared - minDistance) / (maxDistance - minDistance), 1);
                 receiver.sendMessage(
                         PositionalChat.get().getTextObfuscator().obfuscate(

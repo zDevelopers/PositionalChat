@@ -17,3 +17,12 @@ replacements:
     # Use this to prevent players to consult their game log to see through the obfuscation.
     # You'll lose the characters' width.
     replaceObfuscatedText: false
+
+yell:
+    # The prefixes of the yell messages.
+    # The full-text prefix is prepended to the whole message, before "<nickname>".
+    # The message prefix is prepended to the player's message, after the "<nickname> ".
+    # You can use formatting codes here, either using '§' or '&'.
+    prefix:
+        full-text: "\u2756 "
+        message: ""

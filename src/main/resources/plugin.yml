@@ -3,5 +3,21 @@ description: Just like Mumble's positional audio, but with text chat.
 main: fr.zcraft.PositionalChat.PositionalChat
 version: 1.0
 authors:
-  - "Amaury Carrade"
-  - "Jenjeur"
+    - "Amaury Carrade"
+    - "Jenjeur"
+
+commands:
+    yell:
+        description: Sends a non-obfuscated message to the whole server.
+        usage: "§cUsage: /<command> message"
+        permission: positionalchat.yell
+        permission-message: "§cYou're not allowed to yell on the whole server."
+
+permissions:
+    positionalchat.*:
+        default: op
+        children:
+            positionalchat.yell: true
+
+    positionalchat.yell:
+        default: op

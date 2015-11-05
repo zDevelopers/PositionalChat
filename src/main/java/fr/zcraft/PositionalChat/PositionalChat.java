@@ -22,6 +22,8 @@ public class PositionalChat extends JavaPlugin
         textObfuscator = new TextObfuscator();
 
         getServer().getPluginManager().registerEvents(new ChatListener(), this);
+
+        getCommand("yell").setExecutor(new PCYellCommand());
     }
 
 
