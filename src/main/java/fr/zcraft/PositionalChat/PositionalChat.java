@@ -1,5 +1,8 @@
 package fr.zcraft.PositionalChat;
 
+import fr.zcraft.PositionalChat.listeners.ChatListener;
+import fr.zcraft.PositionalChat.commands.PCYellCommand;
+import fr.zcraft.PositionalChat.tools.TextObfuscator;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
