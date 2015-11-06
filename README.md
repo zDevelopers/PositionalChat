@@ -1,9 +1,11 @@
 # PositionalChat [![Build Status](http://jenkins.carrade.eu/job/PositionalChat/badge/icon)](http://jenkins.carrade.eu/job/PositionalChat/)
 Just like Mumble's positional audio, but with text chat.
 
-This plugin brings back positional conversatons to text chat, sending semi-obfuscated messages based on the distance.
+**[Download the latest version here](http://jenkins.carrade.eu/job/PositionalChat/)** (unstable version).
 
-There's also a `/yell` command, if you need to be read clearely by everyone.
+This plugin brings back positional conversations to text chat, sending semi-obfuscated messages based on the distance.
+
+There's also a `/yell` command, if you need to be read clearly by everyone.
 
 ![Preview](http://raw.carrade.eu/s/1446771408.png)
 
@@ -23,7 +25,7 @@ There's also a `/yell` command, if you need to be read clearely by everyone.
    *Default: no-one.*
 
 
-### Config
+### Configuration
 
 ```yml
 distances:
