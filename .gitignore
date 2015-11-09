@@ -5,4 +5,5 @@ bin/
 .settings
 *~
 *.iml
+dependency-reduced-pom.xml
 .idea/

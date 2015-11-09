@@ -33,6 +33,7 @@ package fr.zcraft.PositionalChat.listeners;
 
 import fr.zcraft.PositionalChat.PositionalChat;
 import fr.zcraft.PositionalChat.events.AsyncPlayerYellEvent;
+import fr.zcraft.zlib.tools.chat.MessageSender;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -82,7 +83,7 @@ public class ChatListener implements Listener
 
                 // TODO real chat message (instead of system one).
                 float obfuscationPercentage = (float) Math.min((distanceSquared - minDistance) / (maxDistance - minDistance), 1);
-                receiver.sendMessage(
+                MessageSender.sendChatMessage(receiver,
                         PositionalChat.get().getTextObfuscator().obfuscate(
                                 formattedMessage, obfuscationPercentage,
                                 PositionalChat.get().getPCConfig().clearObfuscatedMessagesColors(),

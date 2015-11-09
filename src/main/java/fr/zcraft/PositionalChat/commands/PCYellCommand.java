@@ -33,6 +33,7 @@ package fr.zcraft.PositionalChat.commands;
 
 import fr.zcraft.PositionalChat.PositionalChat;
 import fr.zcraft.PositionalChat.events.AsyncPlayerYellEvent;
+import fr.zcraft.zlib.tools.chat.MessageSender;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -81,7 +82,7 @@ public class PCYellCommand implements CommandExecutor
 
             for(Player recipient : event.getRecipients())
             {
-                recipient.sendMessage(formattedMessage);  // TODO real chat message (instead of system one).
+                MessageSender.sendChatMessage(recipient, formattedMessage);
             }
         }
 
