@@ -3,11 +3,10 @@ package fr.zcraft.PositionalChat;
 import fr.zcraft.PositionalChat.commands.PCYellCommand;
 import fr.zcraft.PositionalChat.listeners.ChatListener;
 import fr.zcraft.PositionalChat.tools.TextObfuscator;
-import fr.zcraft.zlib.ZLib;
-import org.bukkit.plugin.java.JavaPlugin;
+import fr.zcraft.zlib.core.ZPlugin;
 
 
-public class PositionalChat extends JavaPlugin
+public class PositionalChat extends ZPlugin
 {
     private static PositionalChat instance;
 
@@ -19,8 +18,6 @@ public class PositionalChat extends JavaPlugin
     public void onEnable()
     {
         instance = this;
-
-        ZLib.init(this);
 
         saveDefaultConfig();
 
