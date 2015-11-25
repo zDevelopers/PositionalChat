@@ -33,7 +33,7 @@ package fr.zcraft.PositionalChat.commands;
 
 import fr.zcraft.PositionalChat.PositionalChat;
 import fr.zcraft.PositionalChat.events.AsyncPlayerYellEvent;
-import fr.zcraft.zlib.tools.chat.MessageSender;
+import fr.zcraft.zlib.tools.text.MessageSender;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
