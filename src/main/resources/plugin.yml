@@ -12,6 +12,8 @@ commands:
         usage: "§cUsage: /<command> message"
         permission: positionalchat.yell
         permission-message: "§cYou're not allowed to yell on the whole server."
+        aliases:
+            - "y"
 
 permissions:
     positionalchat.*:
@@ -23,7 +25,7 @@ permissions:
 
     positionalchat.yell:
         description: Allows you to use /yell to the whole server.
-        default: op
+        default: true
     positionalchat.clearview:
         description: Players with this permission always receive clear messages, regardless of the distance.
         default: false
