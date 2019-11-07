@@ -2,6 +2,7 @@ name: PositionalChat
 description: Just like Mumble's positional audio, but with text chat.
 main: fr.zcraft.PositionalChat.PositionalChat
 version: 1.0
+api-version: "1.13"
 authors:
     - "Amaury Carrade"
     - "Jenjeur"
